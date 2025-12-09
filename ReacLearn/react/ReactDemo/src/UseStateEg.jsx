@@ -4,28 +4,30 @@ function UseStateEg()
 {
     const [Student,setStudent]=useState(
         {
-            name:"siva",
-            age:20,
-            dept:"Information Technology"
+            name:"",
+            dept:""
         }
     )
+    
 
-    function Update()
+    function info(e)
     {
-       // setStudent({name:"bharathi"})
-
-       setStudent((previousData)=>{return({...previousData,name:"bharathi"})})
+        e.preventDefault()
+        console.log("Name is:",Student.name)
+        console.log("Dept is:",Student.dept) 
     }
 
     return (
         <>
+        
         <h1>Name:{Student.name}</h1>
-        <h1>Age:{Student.age}</h1>
         <h1>dept:{Student.dept}</h1>
         
-        <button onClick={Update}>ChangeName</button>
-        </>
-    )
+        <input type="text" value={Student.name} onChange={(e)=>{setStudent({...Student,name:e.target.value})}}></input>
+        <input type="text" value={Student.dept} onChange={(e)=>{setStudent({...Student,dept:e.target.value})}}></input>
+        <button onClick={(e)=>info(e)}>Update</button>
+        </>)
+
 }
 
 export default UseStateEg
