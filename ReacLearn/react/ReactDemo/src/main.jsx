@@ -5,6 +5,8 @@ import App from './App'
 import Sample from './sample'
 import UseRefEg from './UseRefEg'
 import UseEffectEg from './UseEffectEg'
+import UseStateEg from './UseStateEg'
+import ExampleTables from './ExampleTables'
 
 
 createRoot(document.getElementById('root')).render(
@@ -15,9 +17,11 @@ createRoot(document.getElementById('root')).render(
 
   {/*<UseRefEg/>*/}
 
-  <UseEffectEg/>
+  {/* <UseStateEg/>*/}
    
+   <ExampleTables/>
 
 
   </StrictMode>,
 )
+
