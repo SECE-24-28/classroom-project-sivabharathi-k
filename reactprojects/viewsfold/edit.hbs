@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Book</title>
+    <style>
+
+    body {
+    font-family: Arial, sans-serif;
+    background: #00d4d4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Card-style form box */
+.form-container {
+    width: 400px;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Title */
+.form-container h2 {
+    margin-bottom: 20px;
+    font-size: 26px;
+    font-weight: bold;
+    color: #222;
+}
+
+/* Input boxes */
+.form-container input {
+    width: 80%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+/* Input focus effect */
+.form-container input:focus {
+    border-color: #009999;
+    box-shadow: 0 0 5px rgba(0, 150, 150, 0.5);
+    outline: none;
+}
+
+/* Submit button */
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: #009999;
+    color: white;
+    font-size: 17px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* Button hover */
+.btn:hover {
+    background: #007777;
+}
+
+/* Cancel link */
+.cancel {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 15px;
+    color: #0077cc;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* Cancel hover */
+.cancel:hover {
+    color: red;
+}
+</style>
+</head>
+<body>
+    
+    <div class="form-container">
+        <h1>Update Book</h1>
+    <form method="POST" action="/update_book/{{book._id}}">
+        <input type="text" name="title" value="{{book.title}}" placeholder="Book Title" required><br><br>
+        <input type="text" name="author" value="{{book.author}}" placeholder="Author Name" required><br><br>
+        <button type="submit">Update Book</button>
+        <a href="/">Cancel</a>
+    </form>
+    </div>
+</body>
+</html>

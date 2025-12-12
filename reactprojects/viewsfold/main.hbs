@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Books App</title>
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background: aquamarine;
+    margin: 0;
+    padding: 30px;
+}
+
+.page-container {
+    max-width: 600px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-bottom: 25px;
+}
+
+.card h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.book-list {
+    list-style: none;
+    padding: 0;
+}
+
+.book-list li {
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 18px;
+}
+
+.book-list li:last-child {
+    border-bottom: none;
+}
+
+
+.edit {
+    
+    margin-left: 15px;
+    color: #0066cc;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.edit:hover {
+    color:#0066cc;
+}
+
+.delete {
+    margin-left: 10px;
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.delete:hover {
+    color:#0066cc;
+}
+
+input {
+    width: 95%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+input:focus {
+    border-color: #009999;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 150, 150, 0.4);
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: #009999;
+    color: white;
+    border: none;
+    font-size: 17px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #007777;
+}
+</style>
+</head>
+
+<body>
+<div class="page-container">
+    <h1><i>Hello {{message}}</i></h1>
+
+    <div class="card">
+        <h2>Books List:</h2>
+        <ul class="book-list">
+        {{#each mydata}}
+        <li>{{this.title}} - {{this.author}}
+            <a href="/edit/{{this._id}}">Edit</a>
+            <a href="/delete_book/{{this._id}}" onclick="return confirm('Are you sure?')">Delete</a>
+        </li>
+        {{/each}}
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Add New Book:</h2>
+        <form method="POST" action="/store_book">
+        <input type="text" name="title" placeholder="Book Title" required><br><br>
+        <input type="text" name="author" placeholder="Author Name" required><br><br>
+        <button type="submit">Add Book</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
